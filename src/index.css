@@ -12,23 +12,53 @@ body {
 }
 
 .App {
-  background: rgb(13, 0, 128);
+  background: linear-gradient(
+    darkblue 0%,
+    pink 21%,
+    yellow 43%,
+    pink 61%,
+    darkblue 81%
+  );
+  height: 100%;
+  width: 100%;
+  background-size: auto 400%;
+  animation: day 120s linear 0s infinite;
   transition: 0.7s ease-in;
 }
 
+@keyframes day {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 200%;
+  }
+}
+
 .App-warm {
-  background-image: url("./morning.jpg");
-  background-position: bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: linear-gradient(
+    rgb(155, 245, 230) 21%,
+    rgb(255, 255, 58) 43%,
+    rgb(91, 235, 235) 51%
+  );
+  height: 100%;
+  width: 100%;
+  background-size: auto 200%;
+  animation: day 30s linear 0s infinite;
   transition: 0.7s ease-in;
 }
 
 .App-night {
-  background-image: url("./night.jpg");
-  background-position: bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: linear-gradient(
+    darkblue 0%,
+    rgb(178, 109, 243) 21%,
+    darkblue 81%
+  );
+  height: 100%;
+  width: 100%;
+  background-size: auto 200%;
+  animation: day 30s linear 0s infinite;
   transition: 0.7s ease-in;
 }
 
@@ -47,18 +77,18 @@ main {
   width: 80%;
   padding: 15px;
   margin-top: 30px;
-  
+
   background: rgba(255, 255, 255, 0.6);
 
   outline: none;
   appearance: none;
   border: none;
-  
+
   border-radius: 20px;
   box-shadow: 0px 5px rgba(0, 0, 0, 0.699);
 
   font-size: 20px;
-  
+
   transition: 0.4s ease;
 }
 
@@ -151,7 +181,7 @@ h1 {
 
 #date:hover,
 #location:hover {
-  font-size: 50px;  
+  font-size: 50px;
 }
 
 #temp:hover {
