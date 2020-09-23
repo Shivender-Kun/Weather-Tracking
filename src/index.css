@@ -9,15 +9,19 @@ body {
   color: white;
   font-size: 10px;
   text-align: center;
-
 }
 
 .App {
+  background: rgb(13, 0, 128);
+  transition: 0.7s ease-in;
+}
+
+.App-warm {
   background-image: url("./morning.jpg");
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: 0.5 ease-out;
+  transition: 0.7s ease-in;
 }
 
 .App-night {
@@ -25,7 +29,7 @@ body {
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: 0.5 ease-out;
+  transition: 0.7s ease-in;
 }
 
 main {
@@ -39,9 +43,28 @@ main {
   margin: 0 0 75px;
 }
 
+#searchBar1 {
+  width: 80%;
+  padding: 15px;
+  margin-top: 30px;
+  
+  background: rgba(255, 255, 255, 0.6);
+
+  outline: none;
+  appearance: none;
+  border: none;
+  
+  border-radius: 20px;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.699);
+
+  font-size: 20px;
+  
+  transition: 0.4s ease;
+}
+
 #searchBar {
   display: block;
-  width: 100%;
+  width: 80%;
   padding: 15px;
 
   background: rgba(255, 255, 255, 0.6);
@@ -51,10 +74,10 @@ main {
   border: none;
 
   border-radius: 0px 0px 16px 16px;
-  margin-top: -20px;
+  margin: -20px auto 100px;
   box-shadow: 0px 5px rgba(0, 0, 0, 0.699);
 
-  color: cyan;
+  /* color: cyan; */
 
   font-size: 20px;
 
@@ -62,7 +85,13 @@ main {
 }
 
 #searchBar:focus,
-#searchBar:hover {
+#searchBar1:focus {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+#searchBar:hover,
+#searchBar1:hover {
+  width: 90%;
   background: rgba(255, 255, 255, 0.9);
 }
 
@@ -70,6 +99,8 @@ main {
   font-size: 32px;
   font-weight: 500;
   text-shadow: 3px 3px black;
+  margin-bottom: 20px;
+  transition: 0.7s ease-out;
 }
 
 .location-box #date {
@@ -77,6 +108,16 @@ main {
   font-weight: 300;
   font-style: italic;
   text-shadow: 3px 3px black;
+  margin-bottom: 20px;
+  transition: 0.7s ease-out;
+}
+
+#date1 {
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  text-shadow: 3px 3px black;
+  margin-top: 20px;
 }
 
 .weather-box #temp {
@@ -91,10 +132,32 @@ main {
   padding: 5px 25px;
   text-shadow: 3px 3px black;
   box-shadow: 3px 3px black;
+  transition: 0.7s ease-out;
 }
 
 .weather-box #weather {
   font-size: 48px;
   font-weight: 700;
   text-shadow: 3px 3px black;
+  margin-top: 20px;
+  transition: 0.7s ease-out;
+}
+
+h1 {
+  font-size: 3em;
+  padding: 10px 20px;
+  transition: 0.5s ease;
+}
+
+#date:hover,
+#location:hover {
+  font-size: 50px;  
+}
+
+#temp:hover {
+  font-size: 200px;
+}
+
+#weather:hover {
+  font-size: 70px;
 }
