@@ -191,3 +191,23 @@ h1 {
 #weather:hover {
   font-size: 70px;
 }
+
+h3 {
+  font-size: 60px;
+  display: inline-block;
+  color: red;
+  margin-top: 200px;
+  font-family: cursive;
+  animation: name 2s infinite;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+@keyframes name {
+  0%   { transform: scale(1,1)      translateY(0); }
+        10%  { transform: scale(1.1,.9)   translateY(0); }
+        30%  { transform: scale(.9,1.1)   translateY(-100px); }
+        50%  { transform: scale(1.05,.95) translateY(0); }
+        57%  { transform: scale(1,1)      translateY(-7px); }
+        64%  { transform: scale(1,1)      translateY(0); }
+        100% { transform: scale(1,1)      translateY(0); }
+}

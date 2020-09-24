@@ -89,6 +89,7 @@ function App() {
                 <div id="weather">{weather.weather[0].main}</div>
               </div>
             </div>
+            <h3>Pervert</h3>
           </div>
         ) : (
           <div>
@@ -102,6 +103,7 @@ function App() {
               onKeyPress={search}
             />
             <div id="date1">{dateBuilder(new Date())}</div>
+              <h3>Pervert</h3>
           </div>
         )}
       </main>
