@@ -12,53 +12,22 @@ body {
 }
 
 .App {
-  background: linear-gradient(
-    darkblue 0%,
-    pink 21%,
-    yellow 43%,
-    pink 61%,
-    darkblue 81%
-  );
-  height: 100%;
-  width: 100%;
-  background-size: auto 400%;
-  animation: day 120s linear 0s infinite;
-  transition: 0.7s ease-in;
-}
-
-@keyframes day {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 0 200%;
-  }
+  background-image: url('./morning.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .App-warm {
-  background: linear-gradient(
-    rgb(155, 245, 230) 21%,
-    rgb(255, 255, 58) 43%,
-    rgb(91, 235, 235) 51%
-  );
-  height: 100%;
-  width: 100%;
-  background-size: auto 200%;
-  animation: day 30s linear 0s infinite;
+  background-image: url('./morning.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   transition: 0.7s ease-in;
 }
 
 .App-night {
-  background: linear-gradient(
-    darkblue 0%,
-    rgb(178, 109, 243) 21%,
-    darkblue 81%
-  );
-  height: 100%;
-  width: 100%;
-  background-size: auto 200%;
-  animation: day 30s linear 0s infinite;
+  background-image: url('./night.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   transition: 0.7s ease-in;
 }
 
@@ -106,8 +75,6 @@ main {
   border-radius: 0px 0px 16px 16px;
   margin: -20px auto 100px;
   box-shadow: 0px 5px rgba(0, 0, 0, 0.699);
-
-  /* color: cyan; */
 
   font-size: 20px;
 
@@ -190,24 +157,4 @@ h1 {
 
 #weather:hover {
   font-size: 70px;
-}
-
-h3 {
-  font-size: 60px;
-  display: inline-block;
-  color: red;
-  margin-top: 200px;
-  font-family: cursive;
-  animation: name 2s infinite;
-  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
-}
-
-@keyframes name {
-  0%   { transform: scale(1,1)      translateY(0); }
-        10%  { transform: scale(1.1,.9)   translateY(0); }
-        30%  { transform: scale(.9,1.1)   translateY(-100px); }
-        50%  { transform: scale(1.05,.95) translateY(0); }
-        57%  { transform: scale(1,1)      translateY(-7px); }
-        64%  { transform: scale(1,1)      translateY(0); }
-        100% { transform: scale(1,1)      translateY(0); }
 }

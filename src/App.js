@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+// import Map from './Component/maps'
 const api = {
   key: "667eaac156fbff26dc85b2c519281d40",
   base: "https://api.openweathermap.org/data/2.5/",
@@ -89,10 +89,9 @@ function App() {
                 <div id="weather">{weather.weather[0].main}</div>
               </div>
             </div>
-            <h3>Pervert</h3>
           </div>
         ) : (
-          <div>
+          <div id='no_weather'>
             <h1>Enter Your City</h1>
             <input
               id="searchBar1"
@@ -102,10 +101,13 @@ function App() {
               onChange={(e) => setQuery(e.target.value)}
               onKeyPress={search}
             />
-            <div id="date1">{dateBuilder(new Date())}</div>
-              <h3>Pervert</h3>
+            <div id="date1">{dateBuilder(new Date())}</div> 
           </div>
         )}
+        <div className='mapping'>
+      
+        </div>
+        
       </main>
     </div>
   );
