@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import _uniqueId from 'lodash/uniqueId';
+import React, { useState, useEffect } from "react";
+import firebase from './firebase';
 
 const api = {
   key: "667eaac156fbff26dc85b2c519281d40",
@@ -41,6 +41,14 @@ const dateBuilder = (d) => {
 };
 
 function App() {
+  useEffect(() => {
+    const msg = firebase.messaging();
+    msg.requestPermission().then(() => {
+      return msg.getToken();
+    }).then((data) => {
+      console.warn('token as string', data);
+    })
+  })
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
 
