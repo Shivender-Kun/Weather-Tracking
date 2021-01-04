@@ -161,10 +161,34 @@ h1 {
 
 @media (max-width: 500px) {
   .weather-box #temp {
-    font-size: 120px;
+    font-size: 100px;
   }
 
   #temp:hover {
-    font-size: 140px;
+    font-size: 120px;
+  }
+
+  .location-box #location {
+    font-size: 28px;
+  }
+
+  .location-box #date {
+    font-size: 25px;
+  }
+
+  #date1 {
+    font-size: 30px;
+  }
+  .weather-box #weather {
+    font-size: 38px;
+  }
+
+  #date:hover,
+  #location:hover {
+    font-size: 45px;
+  }
+
+  #weather:hover {
+    font-size: 50px;
   }
 }
