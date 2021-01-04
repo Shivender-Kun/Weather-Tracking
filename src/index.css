@@ -12,20 +12,20 @@ body {
 }
 
 .App {
-  background-image: url('./morning.jpg');
+  background-image: url("./morning.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .App-warm {
-  background-image: url('./morning.jpg');
+  background-image: url("./morning.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   transition: 0.7s ease-in;
 }
 
 .App-night {
-  background-image: url('./night.jpg');
+  background-image: url("./night.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   transition: 0.7s ease-in;
@@ -157,4 +157,14 @@ h1 {
 
 #weather:hover {
   font-size: 70px;
+}
+
+@media (max-width: 500px) {
+  .weather-box #temp {
+    font-size: 120px;
+  }
+
+  #temp:hover {
+    font-size: 140px;
+  }
 }

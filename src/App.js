@@ -50,7 +50,7 @@ function App() {
         .then((result) => {
           setQuery("");
           setWeather(result);
-          // console.log(weather);
+          console.log(result);
         });
     }
   };
