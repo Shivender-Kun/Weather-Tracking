@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import firebase from './firebase';
+import firebase from "./firebase";
 
 const api = {
   key: "667eaac156fbff26dc85b2c519281d40",
@@ -40,15 +40,22 @@ const dateBuilder = (d) => {
   return `${day} ${date} ${month} ${year}`;
 };
 
+
 function App() {
   useEffect(() => {
-    const msg = firebase.messaging();
-    msg.requestPermission().then(() => {
-      return msg.getToken();
-    }).then((data) => {
-      console.warn('token as string', data);
+    const messaging = firebase.messaging()
+    messaging.requestPermission()
+    .then(() => {
+      console.log("Have Permission")
+      return messaging.getToken();
     })
-  })
+      .then((token) => {
+        console.log("token -", token);
+      })
+      .catch((err) => {
+        console.log("error")
+      });
+  });
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
 
@@ -100,19 +107,19 @@ function App() {
             </div>
           </div>
         ) : (
-          <div id="no_weather">
-            <h1>Enter Your City</h1>
-            <input
-              id="searchBar1"
-              type="text"
-              value={query}
-              placeholder="Search...."
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyPress={search}
-            />
-            <div id="date1">{dateBuilder(new Date())}</div>
-          </div>
-        )}
+            <div id="no_weather">
+              <h1>Enter Your City</h1>
+              <input
+                id="searchBar1"
+                type="text"
+                value={query}
+                placeholder="Search...."
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyPress={search}
+              />
+              <div id="date1">{dateBuilder(new Date())}</div>
+            </div>
+          )}
         <div className="mapping"></div>
       </main>
     </div>

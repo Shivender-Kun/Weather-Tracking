@@ -1,6 +1,6 @@
 import firebase from "firebase";
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyAp5pSND5XtaRsFGiw-BEBV_SvPHaBbTTs",
   authDomain: "weather-tracker-react.firebaseapp.com",
   databaseURL: "https://weather-tracker-react-default-rtdb.firebaseio.com",
@@ -11,6 +11,6 @@ const firebaseConfig = {
   measurementId: "G-FDSXTX3SEB",
 };
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 
 export default firebase;
