@@ -188,6 +188,9 @@ hr {
 }
 
 @media (max-width: 500px) {
+  body {
+    font-size: 15px;
+  }
   #temp {
     font-size: 100px;
   }
