@@ -7,17 +7,12 @@
 body {
   font-family: "montseratt", sans-serif;
   color: white;
-  font-size: 10px;
+  font-size: 20px;
   text-align: center;
 }
 
-.App {
-  background-image: url("./morning.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.App-warm {
+.App-warm,
+.App-night {
   background-image: url("./morning.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,26 +21,23 @@ body {
 
 .App-night {
   background-image: url("./night.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: 0.7s ease-in;
 }
 
 main {
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.3);
-  padding: 20px;
 }
 
 .search-bar {
   width: 100%;
-  margin: 0 0 75px;
+  margin: 0px auto 40px;
 }
 
-#searchBar1 {
+#searchBar1,
+#searchBar {
   width: 80%;
   padding: 15px;
-  margin-top: 30px;
+  margin: 30px auto;
 
   background: rgba(255, 255, 255, 0.6);
 
@@ -62,23 +54,8 @@ main {
 }
 
 #searchBar {
-  display: block;
-  width: 80%;
-  padding: 15px;
-
-  background: rgba(255, 255, 255, 0.6);
-
-  outline: none;
-  appearance: none;
-  border: none;
-
   border-radius: 0px 0px 16px 16px;
-  margin: -20px auto 100px;
-  box-shadow: 0px 5px rgba(0, 0, 0, 0.699);
-
-  font-size: 20px;
-
-  transition: 0.4s ease;
+  margin-top: 0px;
 }
 
 #searchBar:focus,
@@ -92,52 +69,48 @@ main {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.location-box #location {
+#country,
+.date,
+#weather,
+.notFound,
+.aqi {
+  max-width: fit-content;
   font-size: 32px;
   font-weight: 500;
   text-shadow: 3px 3px black;
-  margin-bottom: 20px;
-  transition: 0.7s ease-out;
+  margin: 0px auto 20px;
+  transition: 0.5s ease-out;
 }
 
-.location-box #date {
-  font-size: 20px;
+.date {
+  font-size: 25px;
   font-weight: 300;
   font-style: italic;
-  text-shadow: 3px 3px black;
-  margin-bottom: 20px;
-  transition: 0.7s ease-out;
 }
 
-#date1 {
-  font-size: 30px;
-  font-weight: 300;
-  font-style: italic;
-  text-shadow: 3px 3px black;
-  margin-top: 20px;
-}
-
-.weather-box #temp {
+#temp {
   position: relative;
   display: inline-block;
   margin: 30px auto;
+
   background-color: rgba(255, 252, 252, 0.4);
   color: rgb(255, 254, 254);
-  font-size: 150px;
+
+  font-size: 130px;
   border-radius: 20px;
-  font-weight: 900;
+  font-weight: 800;
   padding: 5px 25px;
+
   text-shadow: 3px 3px black;
   box-shadow: 3px 3px black;
-  transition: 0.7s ease-out;
+
+  transition: 0.5s ease-out;
 }
 
-.weather-box #weather {
-  font-size: 48px;
+#weather {
+  font-size: 45px;
   font-weight: 700;
-  text-shadow: 3px 3px black;
   margin-top: 20px;
-  transition: 0.7s ease-out;
 }
 
 h1 {
@@ -146,21 +119,76 @@ h1 {
   transition: 0.5s ease;
 }
 
-#date:hover,
-#location:hover {
-  font-size: 50px;
+.date:hover {
+  font-size: 30px;
+}
+
+#country:hover {
+  font-size: 40px;
 }
 
 #temp:hover {
-  font-size: 200px;
+  font-size: 150px;
 }
 
 #weather:hover {
-  font-size: 70px;
+  font-size: 55px;
+}
+
+hr {
+  border: 0px;
+  width: 100%;
+  margin: 0px;
+  height: 2px;
+  background: rgb(16, 16, 20);
+}
+
+.notFound {
+  color: red;
+  background: rgba(55, 61, 59, 0.466);
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.aqi {
+  margin-top: 30px;
+  background: rgba(4, 189, 133, 0.829);
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-shadow: none;
+}
+
+.aqi span {
+  font-weight: 600;
+}
+
+#good {
+  color: rgb(7, 226, 7);
+}
+
+#moderate {
+  color: yellow;
+}
+
+#unhealthy_4_sensitive {
+  color: orange;
+}
+
+#unhealthy {
+  color: red;
+}
+
+#very_Unhealthy {
+  color: purple;
+}
+
+#hazardous {
+  color: brown;
 }
 
 @media (max-width: 500px) {
-  .weather-box #temp {
+  #temp {
     font-size: 100px;
   }
 
@@ -168,23 +196,20 @@ h1 {
     font-size: 120px;
   }
 
-  .location-box #location {
+  #country {
     font-size: 28px;
   }
 
-  .location-box #date {
+  .date {
     font-size: 25px;
   }
 
-  #date1 {
-    font-size: 30px;
-  }
-  .weather-box #weather {
+  #weather {
     font-size: 38px;
   }
 
-  #date:hover,
-  #location:hover {
+  .date:hover,
+  #country:hover {
     font-size: 45px;
   }
 

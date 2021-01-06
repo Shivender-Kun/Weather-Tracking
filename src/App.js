@@ -5,6 +5,11 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
+const location = {
+  token: "c8542d96f01f147ddc356f8291b89a0401358a6e",
+  base: "https://api.waqi.info/feed/",
+};
+
 const dateBuilder = (d) => {
   let months = [
     "January",
@@ -40,9 +45,9 @@ const dateBuilder = (d) => {
 };
 
 function App() {
-
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
+  const [locationaqi, setLocationAqi] = useState({});
 
   const search = (evt) => {
     if (evt.key === "Enter") {
@@ -51,7 +56,13 @@ function App() {
         .then((result) => {
           setQuery("");
           setWeather(result);
-          // console.log(result);
+          console.log(result);
+        });
+      fetch(`${location.base}${query}/?token=${location.token}`)
+        .then((res) => res.json())
+        .then((resu) => {
+          setLocationAqi(resu);
+          console.log(resu);
         });
     }
   };
@@ -59,11 +70,9 @@ function App() {
   return (
     <div
       className={
-        typeof weather.main != "undefined"
-          ? new Date().getHours() >= 20 || new Date().getHours() <= 6
-            ? "App-night"
-            : "App-warm"
-          : "App"
+        new Date().getHours() >= 18 || new Date().getHours() <= 6
+          ? "App-night"
+          : "App-warm"
       }
     >
       <main>
@@ -80,16 +89,43 @@ function App() {
               />
             </div>
             <div className="location-box">
-              <div id="location">
-                {weather.name}, {weather.sys.country}
+              <div id="country">
+                <span id="location">{weather.name}</span>,{weather.sys.country}
               </div>
-              <div id="date">{dateBuilder(new Date())}</div>
+              <div className="date">{dateBuilder(new Date())}</div>
               <div className="weather-box">
                 <div id="temp">{Math.round(weather.main.temp)}°C</div>
                 <br />
                 <div id="weather">{weather.weather[0].main}</div>
               </div>
             </div>
+            <hr />
+            {locationaqi.status === "ok" ? (
+              <div className="aqi">
+                Air Quality Index
+                <div id="aqi_index">
+                  {locationaqi.data.aqi}{" "}
+                  {locationaqi.data.aqi > 300 ? (
+                    <span id="hazardous">Hazardous</span>
+                  ) : locationaqi.data.aqi > 200 ? (
+                    <span id="very_Unhealthy">Very Unhealthy</span>
+                  ) : locationaqi.data.aqi > 150 ? (
+                    <span id="unhealty">Unhealty</span>
+                  ) : locationaqi.data.aqi > 100 ? (
+                    <span id="unhealty_4_sensitive">
+                      Unhealty for sensitive groups
+                    </span>
+                  ) : locationaqi.data.aqi > 50 ? (
+                    <span id="moderate">Moderate</span>
+                  ) : locationaqi.data.aqi <= 50 ? (
+                    <span id="good">Good</span>
+                  ) : null}
+                </div>
+                <div></div>
+              </div>
+            ) : (
+              <div className="notFound">Air Quality Data Not Available</div>
+            )}
           </div>
         ) : (
           <div id="no_weather">
@@ -102,10 +138,12 @@ function App() {
               onChange={(e) => setQuery(e.target.value)}
               onKeyPress={search}
             />
-            <div id="date1">{dateBuilder(new Date())}</div>
+            <div className="date">{dateBuilder(new Date())}</div>
+            {weather.cod === "404" ? (
+              <h2 className="notFound">{weather.message.toUpperCase()}</h2>
+            ) : null}
           </div>
         )}
-        <div className="mapping"></div>
       </main>
     </div>
   );
