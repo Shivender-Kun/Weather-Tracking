@@ -56,13 +56,13 @@ function App() {
         .then((result) => {
           setQuery("");
           setWeather(result);
-          console.log(result);
+          // console.log(result);
         });
       fetch(`${location.base}${query}/?token=${location.token}`)
         .then((res) => res.json())
         .then((resu) => {
           setLocationAqi(resu);
-          console.log(resu);
+          // console.log(resu);
         });
     }
   };
