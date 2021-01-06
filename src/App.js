@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const api = {
   key: "667eaac156fbff26dc85b2c519281d40",
@@ -48,6 +48,8 @@ function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
   const [locationaqi, setLocationAqi] = useState({});
+  const [elements, setElements] = useState([]);
+  const [pollutantsVal, setPolutantsVal] = useState([]);
 
   const search = (evt) => {
     if (evt.key === "Enter") {
@@ -62,10 +64,31 @@ function App() {
         .then((res) => res.json())
         .then((resu) => {
           setLocationAqi(resu);
+          setElements(Object.keys(resu.data.iaqi));
+          setPolutantsVal(Object.values(resu.data.iaqi).map((i) => i["v"]));
           // console.log(resu);
         });
     }
   };
+
+  let elementName, elementsVal;
+
+  if (pollutantsVal) {
+    elementsVal = pollutantsVal.map((item) => {
+      return (
+        <li value={item} key={item}>
+          {item}
+        </li>
+      );
+    });
+    elementName = elements.map((item) => {
+      return (
+        <li value={item} key={item}>
+          {item}
+        </li>
+      );
+    });
+  }
 
   return (
     <div
@@ -99,10 +122,12 @@ function App() {
                 <div id="weather">{weather.weather[0].main}</div>
               </div>
             </div>
+
             <hr />
             {locationaqi.status === "ok" ? (
               <div className="aqi">
                 Air Quality Index
+                <hr />
                 <div id="aqi_index">
                   {locationaqi.data.aqi}{" "}
                   {locationaqi.data.aqi > 300 ? (
@@ -110,9 +135,9 @@ function App() {
                   ) : locationaqi.data.aqi > 200 ? (
                     <span id="very_Unhealthy">Very Unhealthy</span>
                   ) : locationaqi.data.aqi > 150 ? (
-                    <span id="unhealty">Unhealty</span>
+                    <span id="unhealthy">Unhealty</span>
                   ) : locationaqi.data.aqi > 100 ? (
-                    <span id="unhealty_4_sensitive">
+                    <span id="unhealthy_4_sensitive">
                       Unhealty for sensitive groups
                     </span>
                   ) : locationaqi.data.aqi > 50 ? (
@@ -120,6 +145,17 @@ function App() {
                   ) : locationaqi.data.aqi <= 50 ? (
                     <span id="good">Good</span>
                   ) : null}
+                </div>
+                <hr />
+                <div className="list_flex">
+                  <ul>
+                    <li>Name</li>
+                    {elementName}
+                  </ul>
+                  <ul>
+                    <li>Value</li>
+                    {elementsVal}
+                  </ul>
                 </div>
                 <div></div>
               </div>

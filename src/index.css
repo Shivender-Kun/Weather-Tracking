@@ -119,11 +119,21 @@ h1 {
   transition: 0.5s ease;
 }
 
+.list_flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+  width: fit-content;
+}
 
 hr {
   border: 0px;
   width: 100%;
-  margin: 0px;
+  margin: 10px 0px;
   height: 2px;
   background: rgb(16, 16, 20);
 }
@@ -137,7 +147,8 @@ hr {
 }
 
 .aqi {
-  margin-top: 30px;
+  min-width: 45%;
+  margin: 30px auto 0px;
   background: rgba(4, 189, 133, 0.829);
   padding: 10px 20px;
   border-radius: 20px;
@@ -146,6 +157,15 @@ hr {
 
 .aqi span {
   font-weight: 600;
+}
+
+li {
+  color: bisque;
+}
+
+li:nth-child(1) {
+  color: black;
+  font-weight: bold;
 }
 
 #good {
@@ -172,20 +192,11 @@ hr {
   color: brown;
 }
 
-.date:hover {
-  font-size: 30px;
-}
-
-#country:hover {
-  font-size: 40px;
-}
-
-#temp:hover {
-  font-size: 150px;
-}
-
+#temp:hover,
+.date:hover,
+#country:hover,
 #weather:hover {
-  font-size: 55px;
+  transform: scale(1.3);
 }
 
 @media (max-width: 500px) {
@@ -194,10 +205,6 @@ hr {
   }
   #temp {
     font-size: 100px;
-  }
-
-  #temp:hover {
-    font-size: 120px;
   }
 
   #country,
@@ -209,12 +216,4 @@ hr {
     font-size: 35px;
   }
 
-  .date:hover,
-  #country:hover {
-    font-size: 35px;
-  }
-
-  #weather:hover {
-    font-size: 45px;
-  }
 }
