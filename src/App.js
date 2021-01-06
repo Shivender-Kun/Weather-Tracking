@@ -44,6 +44,21 @@ const dateBuilder = (d) => {
   return `${day} ${date} ${month} ${year}`;
 };
 
+const names = {
+  pm25: "PM 2.5",
+  pm10: "PM 10",
+  o3: "Ozone",
+  no2: "Nitrogen Dioxide",
+  so2: "Sulphur Dioxide",
+  co: "Carbon Monoxyde",
+  t: "Temperature",
+  w: "Wind",
+  r: "Rain (precipitation)",
+  h: "Relative Humidity",
+  d: "Dew",
+  p: "Atmostpheric Pressure",
+};
+
 function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
@@ -84,7 +99,7 @@ function App() {
     elementName = elements.map((item) => {
       return (
         <li value={item} key={item}>
-          {item}
+          {names[item]}
         </li>
       );
     });
@@ -149,7 +164,7 @@ function App() {
                 <hr />
                 <div className="list_flex">
                   <ul>
-                    <li>Name</li>
+                    <li>Pollutants</li>
                     {elementName}
                   </ul>
                   <ul>

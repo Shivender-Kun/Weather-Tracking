@@ -75,7 +75,7 @@ main {
 .notFound,
 .aqi {
   max-width: fit-content;
-  font-size: 32px;
+  font-size: 2.5rem;
   font-weight: 500;
   text-shadow: 3px 3px black;
   margin: 0px auto 20px;
@@ -83,7 +83,7 @@ main {
 }
 
 .date {
-  font-size: 25px;
+  font-size: 2rem;
   font-weight: 300;
   font-style: italic;
 }
@@ -96,7 +96,7 @@ main {
   background-color: rgba(255, 252, 252, 0.4);
   color: rgb(255, 254, 254);
 
-  font-size: 130px;
+  font-size: 10rem;
   border-radius: 20px;
   font-weight: 800;
   padding: 5px 25px;
@@ -108,13 +108,13 @@ main {
 }
 
 #weather {
-  font-size: 45px;
+  font-size: 2.7rem;
   font-weight: 700;
   margin-top: 20px;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   padding: 40px 20px;
   transition: 0.5s ease;
 }
@@ -125,7 +125,6 @@ h1 {
 }
 
 ul {
-  text-decoration: none;
   list-style: none;
   width: fit-content;
 }
@@ -134,7 +133,7 @@ hr {
   border: 0px;
   width: 100%;
   margin: 10px 0px;
-  height: 2px;
+  height: 3px;
   background: rgb(16, 16, 20);
 }
 
@@ -161,6 +160,8 @@ hr {
 
 li {
   color: bisque;
+  text-align: left;
+  padding: 5px 10px;
 }
 
 li:nth-child(1) {
@@ -201,19 +202,22 @@ li:nth-child(1) {
 
 @media (max-width: 500px) {
   body {
-    font-size: 15px;
+    font-size: 10px;
   }
   #temp {
-    font-size: 100px;
+    font-size: 9rem;
   }
 
   #country,
   .date {
-    font-size: 25px;
+    font-size: 1.5rem;
   }
 
   #weather {
-    font-size: 35px;
+    font-size: 2rem;
   }
 
+  .aqi {
+    font-size: 1.5rem;
+  }
 }
