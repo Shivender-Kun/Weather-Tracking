@@ -119,21 +119,6 @@ h1 {
   transition: 0.5s ease;
 }
 
-.date:hover {
-  font-size: 30px;
-}
-
-#country:hover {
-  font-size: 40px;
-}
-
-#temp:hover {
-  font-size: 150px;
-}
-
-#weather:hover {
-  font-size: 55px;
-}
 
 hr {
   border: 0px;
@@ -187,6 +172,22 @@ hr {
   color: brown;
 }
 
+.date:hover {
+  font-size: 30px;
+}
+
+#country:hover {
+  font-size: 40px;
+}
+
+#temp:hover {
+  font-size: 150px;
+}
+
+#weather:hover {
+  font-size: 55px;
+}
+
 @media (max-width: 500px) {
   body {
     font-size: 15px;
@@ -199,24 +200,21 @@ hr {
     font-size: 120px;
   }
 
-  #country {
-    font-size: 28px;
-  }
-
+  #country,
   .date {
     font-size: 25px;
   }
 
   #weather {
-    font-size: 38px;
+    font-size: 35px;
   }
 
   .date:hover,
   #country:hover {
-    font-size: 45px;
+    font-size: 35px;
   }
 
   #weather:hover {
-    font-size: 50px;
+    font-size: 45px;
   }
 }
