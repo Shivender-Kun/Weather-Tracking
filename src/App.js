@@ -45,12 +45,12 @@ const dateBuilder = (d) => {
 };
 
 const names = {
-  pm25: "PM 2.5",
-  pm10: "PM 10",
-  o3: "Ozone",
-  no2: "Nitrogen Dioxide",
-  so2: "Sulphur Dioxide",
-  co: "Carbon Monoxyde",
+  pm25: "PM 2.5 (μg/m³)",
+  pm10: "PM 10 (μg/m³)",
+  o3: "Ozone  (μg/m³)",
+  no2: "Nitrogen Dioxide  (μg/m³)",
+  so2: "Sulphur Dioxide  (μg/m³)",
+  co: "Carbon Monoxyde  (μg/m³)",
   t: "Temperature",
   w: "Wind",
   r: "Rain (precipitation)",
