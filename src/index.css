@@ -93,8 +93,7 @@ main {
   display: inline-block;
   margin: 30px auto;
 
-  background-color: rgba(255, 252, 252, 0.4);
-  color: rgb(255, 254, 254);
+  background-color: #f7f7f76e;
 
   font-size: 10rem;
   border-radius: 20px;
@@ -121,13 +120,22 @@ h1 {
 
 .list_flex {
   display: flex;
+  font-size: 2rem;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-ul {
-  font-size: 2rem;
-  list-style: none;
-  width: fit-content;
+.list_flex>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  padding: 15px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  color: rgb(240, 243, 243);
+  background: #e7be063b;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.226);
 }
 
 hr {
@@ -149,7 +157,7 @@ hr {
 .aqi {
   min-width: 45%;
   margin: 30px auto 0px;
-  background: rgba(4, 189, 133, 0.829);
+  background:#f0ad6a2c;
   padding: 10px 20px;
   border-radius: 20px;
   text-shadow: none;
@@ -159,15 +167,11 @@ hr {
   font-weight: 600;
 }
 
-li {
-  color: bisque;
-  text-align: left;
+#aqi_index {
+  border-radius: 20px;
+  width: fit-content;
+  margin: auto;
   padding: 5px 10px;
-}
-
-li:nth-child(1) {
-  color: black;
-  font-weight: bold;
 }
 
 #good {
@@ -202,8 +206,12 @@ li:nth-child(1) {
 }
 
 @media (max-width: 1000px) {
-  ul {
+  .list_flex {
     font-size: 1.7rem;
+  }
+
+  .list_flex div {
+    width: 200px;
   }
 }
 
@@ -225,7 +233,8 @@ li:nth-child(1) {
     font-size: 1.8rem;
   }
 
-  ul {
+  .list_flex {
     font-size: 1.3rem;
   }
+
 }

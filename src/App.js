@@ -80,29 +80,41 @@ function App() {
         .then((resu) => {
           setLocationAqi(resu);
           setElements(Object.keys(resu.data.iaqi));
-          setPolutantsVal(Object.values(resu.data.iaqi).map((i) => i["v"]));
+          setPolutantsVal(
+            Object.values(resu.data.iaqi).map((i) => i["v"].toFixed(2))
+          );
         });
     }
   };
 
-  let elementName, elementsVal;
+  // let elementName, elementsVal;
 
-  if (pollutantsVal) {
-    elementsVal = pollutantsVal.map((item) => {
-      return (
-        <li value={item} key={item}>
-          {item.toFixed(2)}
-        </li>
-      );
+  // if (pollutantsVal) {
+  //   elementsVal = pollutantsVal.map((item) => {
+  //     return (
+  //       <li value={item} key={item}>
+  //         {item.toFixed(2)}
+  //       </li>
+  //     );
+  //   });
+  //   elementName = elements.map((item) => {
+  //     return (
+  //       <li value={item} key={item}>
+  //         {names[item]}
+  //       </li>
+  //     );
+  //   });
+  // }
+
+  let polval = (j, l) => {
+    let pol = [];
+    const n = j;
+    n.forEach((j, k) => {
+      const val = l[k];
+      pol.push(`${names[j]}${" : "}${val}`);
     });
-    elementName = elements.map((item) => {
-      return (
-        <li value={item} key={item}>
-          {names[item]}
-        </li>
-      );
-    });
-  }
+    return pol.map((i) => <div key={i}>{i}</div>);
+  };
 
   return (
     <div
@@ -162,16 +174,8 @@ function App() {
                 </div>
                 <hr />
                 <div className="list_flex">
-                  <ul>
-                    <li>Pollutants</li>
-                    {elementName}
-                  </ul>
-                  <ul>
-                    <li>Value</li>
-                    {elementsVal}
-                  </ul>
+                  {polval(elements, pollutantsVal)}
                 </div>
-                <div></div>
               </div>
             ) : (
               <div className="notFound">Air Quality Data Not Available</div>
