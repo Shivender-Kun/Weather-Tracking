@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const api = {
   key: "667eaac156fbff26dc85b2c519281d40",
@@ -73,7 +73,6 @@ function App() {
         .then((result) => {
           setQuery("");
           setWeather(result);
-          // console.log(result);
         });
       fetch(`${location.base}${query}/?token=${location.token}`)
         .then((res) => res.json())
@@ -81,7 +80,6 @@ function App() {
           setLocationAqi(resu);
           setElements(Object.keys(resu.data.iaqi));
           setPolutantsVal(Object.values(resu.data.iaqi).map((i) => i["v"]));
-          // console.log(resu);
         });
     }
   };
