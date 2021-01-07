@@ -91,7 +91,7 @@ function App() {
     elementsVal = pollutantsVal.map((item) => {
       return (
         <li value={item} key={item}>
-          {item}
+          {item.toFixed(2)}
         </li>
       );
     });
