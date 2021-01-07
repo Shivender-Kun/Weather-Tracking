@@ -60,6 +60,15 @@ const names = {
   p: "Atmostpheric Pressure",
 };
 
+const show = [
+  "PM₂.₅ (μg/m³)",
+  "PM₁₀ (μg/m³)",
+  "Ozone  (μg/m³)",
+  "Nitrogen Dioxide  (μg/m³)",
+  "Sulphur Dioxide  (μg/m³)",
+  "Carbon Monoxyde  (μg/m³)",
+];
+
 function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
@@ -87,33 +96,25 @@ function App() {
     }
   };
 
-  // let elementName, elementsVal;
-
-  // if (pollutantsVal) {
-  //   elementsVal = pollutantsVal.map((item) => {
-  //     return (
-  //       <li value={item} key={item}>
-  //         {item.toFixed(2)}
-  //       </li>
-  //     );
-  //   });
-  //   elementName = elements.map((item) => {
-  //     return (
-  //       <li value={item} key={item}>
-  //         {names[item]}
-  //       </li>
-  //     );
-  //   });
-  // }
-
   let polval = (j, l) => {
     let pol = [];
+    let polnew = [];
     const n = j;
+
     n.forEach((j, k) => {
       const val = l[k];
       pol.push(`${names[j]}${" : "}${val}`);
     });
-    return pol.map((i) => <div key={i}>{i}</div>);
+    if (pol && show) {
+      for (let h = 0; h < pol.length; h++) {
+        for (let g = 0; g < show.length; g++) {
+          if (pol[h].includes(show[g])) {
+            polnew.push(pol[h]);
+          }
+        }
+      }
+      return polnew.map((i) => <div key={i}>{i}</div>);
+    }
   };
 
   return (
