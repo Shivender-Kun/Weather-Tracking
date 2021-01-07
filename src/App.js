@@ -56,6 +56,7 @@ const names = {
   r: "Rain (precipitation)",
   h: "Relative Humidity",
   d: "Dew",
+  dew: "Dew",
   p: "Atmostpheric Pressure",
 };
 
